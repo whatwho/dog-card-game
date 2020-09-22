@@ -1,0 +1,129 @@
+html * {
+    padding: 0;
+    margin: 0;
+    
+}
+
+#game-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/images/háttér.jpg");
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#restart {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: large;
+    color: greenyellow;
+    background-color: rgb(18, 80, 16);
+    border-radius: 66666666px;
+    border: 2px solid rgb(50, 148, 30);
+    transition: background-color .24s ease, color .24s ease;
+}
+
+#restart:hover {
+    color:rgb(18, 80, 16);
+    background-color:rgb(51, 156, 51);
+    border-color: rgb(18, 80, 16);
+    cursor: pointer;
+}
+
+#cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    bottom: 7%;
+    width: 100%;
+    height: 65%;
+
+}
+
+#middle-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 1px;
+    background-color: black;
+}
+
+#left-cards-conatiner {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+
+#right-cards-conatiner {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.cards {
+    margin: 2px;
+    height: 300px;
+    width: auto;
+}
+
+
+
+.hovered {
+    margin: 0;
+    border: red 2px solid;
+}
+
+#pair-container {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 20%;
+}
+
+
+
+@media only screen and (max-width: 1830px) {
+    .cards {
+        height: 260px;
+    }
+
+    #restart {
+        top: 30px;
+    }
+}
+
+@media only screen and (max-width: 1520px) {
+    #restart {
+        top: 6px;
+    }
+
+    #cards-container {
+        height: 720px;
+    }
+
+    #left-cards-conatiner {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    #right-cards-conatiner {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .cards {
+        height: 220px;
+    }
+}
