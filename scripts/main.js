@@ -1,22 +1,11 @@
-export const imgPath = "../images/kutyas/kepek_jpg/";
-export const descPath = "../images/kutyas/text_jpg/";
+import {printer} from "./game.js";
+import { images, descriptions } from "./readImg.js";
 
-const images = readImgToList(imgPath);
-const descriptions = readImgToList(descPath);
+
 const leftCardContainer = document.getElementById("left-cards-conatiner");
 const rightCardContainer = document.getElementById("right-cards-conatiner");
 
 document.getElementById("restart").addEventListener("click", () => window.location.reload());
-
-function readImgToList(path) {
-    let array = [];
-    for (let i = 1; i < 21; i++) {
-        let image = new Image();
-        image.src = path + i + ".jpg";
-        array.push(image);
-    }
-    return array;
-}
 
 let randomNumbers = [];
 
@@ -27,6 +16,7 @@ for (let index = 0; index < 8; index++) {
     }
     randomNumbers.push(currentNum);
     images[currentNum].setAttribute("number", currentNum);
+    images[currentNum].setAttribute("imgNum", 1);
     images[currentNum].classList.add("cards");
     leftCardContainer.append(images[currentNum]);
 }
@@ -35,6 +25,7 @@ randomNumbers = randomNumbers.sort(() => Math.random() - 0.5)
 
 randomNumbers.forEach(num => {
     descriptions[num].setAttribute("number", num);
+    descriptions[num].setAttribute("imgNum", 0);
     descriptions[num].classList.add("cards");
     rightCardContainer.append(descriptions[num])
 });
@@ -63,22 +54,37 @@ function dragLeave() {
     this.classList.remove("hovered");
 }
 
+let pairCounter = 0;
+
 function dragDrop(e) {
     e.preventDefault();
     this.classList.remove("hovered");
     const draggable = document.getElementsByClassName("dragging");
-    console.log(draggable[0].getAttribute('number'));
-    console.log(this.getAttribute('number'));
-    if (draggable[0].getAttribute('number') === this.getAttribute('number')) {
+    if (draggable[0].getAttribute('number') === this.getAttribute('number') && draggable[0] !== this) {
         const pairsContainer = document.getElementById('pair-container');
         const newDiv = document.createElement('div');
         newDiv.classList.add('pairs');
-        this.classList.add('first-pair-card');
-        this.classList.remove('cards');
-        newDiv.append(this);
-        draggable[0].classList.add('second-pair-card');
-        draggable[0].classList.remove('cards');
-        newDiv.append(draggable[0]);
+        if (draggable[0].getAttribute('imgNum') == 1) {
+            this.classList.add('first-pair-card');
+            this.classList.remove('cards');
+            newDiv.append(this);
+            draggable[0].classList.add('second-pair-card');
+            draggable[0].classList.remove('cards');
+            newDiv.append(draggable[0]);
+        } else {
+            draggable[0].classList.add('first-pair-card');
+            draggable[0].classList.remove('cards');
+            newDiv.append(draggable[0]);
+            this.classList.add('second-pair-card');
+            this.classList.remove('cards');
+            newDiv.append(this);
+        }
+        
         pairsContainer.append(newDiv);
+        pairCounter++;
+        if (pairCounter >= 8) {
+            document.getElementById('hidden').style.display = "block";
+            document.getElementById('middle-line').style.display = "none";
+        }
     }
 }
