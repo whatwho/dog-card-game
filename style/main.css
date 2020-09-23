@@ -85,7 +85,27 @@ html * {
     border: red 2px solid;
 }
 
+.pairs {
+    position: relative;
+}
+
+.first-pair-card { 
+    position: absolute;
+    height: 150px;
+    width: auto;
+}
+
+.second-pair-card { 
+    position: relative;
+    height: 150px;
+    width: auto;
+    left: 20px;
+}
+
 #pair-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     position: absolute;
     bottom: 8px;
     left: 50%;
@@ -112,7 +132,7 @@ html * {
     }
 
     #cards-container {
-        height: 720px;
+        height: 680px;
     }
 
     #left-cards-conatiner {
@@ -125,5 +145,11 @@ html * {
 
     .cards {
         height: 220px;
+    }
+}
+
+@media only screen and (max-width: 1020px) {
+    .cards {
+        height: 200px;
     }
 }
