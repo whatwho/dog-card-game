@@ -19,6 +19,7 @@ html * {
 }
 
 #restart {
+    z-index: 50;
     position: absolute;
     top: 30px;
     left: 50%;
@@ -213,8 +214,19 @@ html * {
     }
 }
 
-@media only screen and (max-width: 1020px) {
+@media only screen and (max-width: 1080px) {
     .cards {
         height: 200px;
     }
+
+    .first-pair-card { 
+        height: 125px;
+        width: auto;
+    }
+
+    .second-pair-card { 
+        height: 125px;
+        width: auto;
+    }
+
 }
