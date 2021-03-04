@@ -1,6 +1,6 @@
 
-const imgPath = "../images/kutyas/kepek_jpg/";
-const descPath = "../images/kutyas/text_jpg/";
+const imgPath = "images/kutyas/kepek_jpg/";
+const descPath = "images/kutyas/text_jpg/";
 
 export const images = readImgToList(imgPath);
 export const descriptions = readImgToList(descPath);
