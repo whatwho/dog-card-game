@@ -1,22 +1,38 @@
-import { gameEvents } from "./game.js";
-import { images, descriptions } from "./readImg.js";
-import { getPlayTime } from "./time.js";
+import {gameEvents} from "./game.js";
+import {descriptions, images} from "./readImg.js";
+import {getPlayTime} from "./time.js";
 
 window.onload = function () {
     init();
+
 }
 
 function init() {
+    const level = getLevel();
+    setUpTimeDiv(level);
     document.getElementById("restart").addEventListener("click", () => window.location.reload());
     buildGame();
-    gameEvents();
-    getPlayTime.start_time();
+    gameEvents(level);
+}
+
+function getLevel() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    return urlParams.get('level');
+}
+
+function setUpTimeDiv(level) {
+    let timeDiv = document.getElementById('time');
+    console.log(timeDiv)
+    if (level === 'hard') {
+        timeDiv.style.visibility = "visible";
+        getPlayTime.start_time();
+    }
 }
 
 function buildGame() {
     const leftCardContainer = document.getElementById("left-cards-container");
     const rightCardContainer = document.getElementById("right-cards-container");
-
     let randomNumbers = [];
 
     for (let index = 0; index < 8; index++) {
