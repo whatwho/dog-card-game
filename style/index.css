@@ -1,0 +1,33 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-item {
+    text-decoration: none;
+    margin: 10px;
+    text-align: center;
+    width: 20%;
+    padding: 10px 20px;
+    font-size: xx-large;
+    color: greenyellow;
+    background-color: rgb(18, 80, 16);
+    border-radius: 66666666px;
+    border: 2px solid rgb(50, 148, 30);
+    transition: background-color .24s ease, color .24s ease;
+}
+
+#game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    flex-flow: column wrap;
+}
