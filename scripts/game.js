@@ -1,6 +1,8 @@
 import { getPlayTime } from "./time.js";
 
-export function gameEvents() {
+export function gameEvents(level) {
+
+    const gameLevel = level;
 
     const cards = document.getElementsByClassName("cards");
 
@@ -55,7 +57,6 @@ export function gameEvents() {
             pairCounter++;
 
             if (is_win(pairCounter)) {
-                getPlayTime.stop_timer();
                 won_screen();
             }
         } else {
@@ -66,9 +67,15 @@ export function gameEvents() {
     function is_win(pairCounter) {
         return pairCounter >= 8;
     }
+
     function won_screen() {
-        let temp_time = getPlayTime.getTime();
-        document.getElementById('hidden').innerText = "Megtaláltad az összes párt!:)\nJátékidő: " + temp_time['minute'] + ":" + temp_time['second'];
+        let wonText = "Megtaláltad az összes párt!:)";
+        if (gameLevel === 'hard') {
+            getPlayTime.stop_timer();
+            let temp_time = getPlayTime.getTime();
+            wonText += "\nJátékidő:  "+ temp_time['minute'] + ":" + temp_time['second'];
+        }
+        document.getElementById('hidden').innerText = wonText;
         document.getElementById('hidden').style.display = "block";
         document.getElementById('middle-line').style.display = "none";
         document.getElementById('restart').style.top = "40%"
