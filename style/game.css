@@ -82,7 +82,7 @@ html * {
     -o-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
-    user-select: none;
+    user-select: none;    
 }
 
 .cards:hover {
@@ -99,7 +99,7 @@ html * {
     margin-right: 25px;
 }
 
-.first-pair-card {
+.first-pair-card { 
     position: absolute;
     height: 200px;
     width: auto;
@@ -108,7 +108,7 @@ html * {
     -o-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
-    user-select: none;
+    user-select: none; 
 }
 
 .first-pair-card:hover {
@@ -116,7 +116,7 @@ html * {
     z-index: 1;
 }
 
-.second-pair-card {
+.second-pair-card { 
     position: relative;
     height: 200px;
     width: auto;
@@ -126,7 +126,7 @@ html * {
     -o-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
-    user-select: none;
+    user-select: none; 
 }
 
 .second-pair-card:hover {
@@ -182,12 +182,12 @@ html * {
 
 @media only screen and (max-width: 1520px) {
 
-    .first-pair-card {
+    .first-pair-card { 
         height: 150px;
         width: auto;
     }
 
-    .second-pair-card {
+    .second-pair-card { 
         height: 150px;
         width: auto;
     }
@@ -218,12 +218,12 @@ html * {
         height: 200px;
     }
 
-    .first-pair-card {
+    .first-pair-card { 
         height: 125px;
         width: auto;
     }
 
-    .second-pair-card {
+    .second-pair-card { 
         height: 125px;
         width: auto;
     }
@@ -234,7 +234,7 @@ html * {
     z-index: 50;
     position: absolute;
     top: 30px;
-    left: 10%;
+    left: 15%;
     transform: translateX(-50%);
     padding: 10px 20px;
     font-size: large;
@@ -243,5 +243,19 @@ html * {
     border-radius: 66666666px;
     border: 2px solid rgb(50, 148, 30);
     transition: background-color .24s ease, color .24s ease;
+    visibility: hidden;
 }
 
+a {
+    position: absolute;
+    top: 30px;
+    left: 1%;
+    padding: 10px 20px;
+    font-size: large;
+    color: greenyellow;
+    background-color: rgb(18, 80, 16);
+    border-radius: 66666666px;
+    border: 2px solid rgb(50, 148, 30);
+    transition: background-color .24s ease, color .24s ease;
+    text-decoration: none;
+}
