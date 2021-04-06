@@ -1,261 +1,254 @@
 html * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-image: url("../images/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #game-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    background-image: url("../images/background.png");
-    background-position: bottom;
-    background-size: cover;
-    background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
 }
 
 #restart {
-    z-index: 50;
-    position: absolute;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    font-size: large;
-    color: greenyellow;
-    background-color: rgb(18, 80, 16);
-    border-radius: 66666666px;
-    border: 2px solid rgb(50, 148, 30);
-    transition: background-color .24s ease, color .24s ease;
+  z-index: 50;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  border: none;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: large;
+  color: greenyellow;
+  background-color: rgb(18, 80, 16);
+  border-radius: 30px;
+  transition: background-color 0.24s ease, color 0.24s ease;
+  cursor: pointer;
 }
 
 #restart:hover {
-    color:rgb(18, 80, 16);
-    background-color:rgb(51, 156, 51);
-    border-color: rgb(18, 80, 16);
-    cursor: pointer;
+  background-color: rgb(27, 109, 24);
 }
 
 #cards-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: relative;
-    bottom: 7%;
-    width: 100%;
-    height: 65%;
-}
-
-#middle-line {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 100%;
-    width: 2px;
-    background-color: rgb(16, 122, 16);
-    opacity: .7;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  bottom: 7%;
+  width: 100%;
+  height: 65%;
 }
 
 #left-cards-conatiner {
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 #right-cards-conatiner {
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .cards {
-    margin: 2px;
-    height: 300px;
-    width: auto;
-    transition: scale 1s ease;
-    -khtml-user-select: none;
-    -o-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;    
+  margin: 2px;
+  height: 300px;
+  width: auto;
+  transition: scale 1s ease;
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: 0.2s ease-in-out;
 }
 
 .cards:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .hovered {
-    margin: 0;
-    border: yellow 2px solid;
+  margin: 0;
+  border: yellow 2px solid;
 }
 
 .pairs {
-    position: relative;
-    margin-right: 25px;
+  position: relative;
+  margin-right: 25px;
 }
 
-.first-pair-card { 
-    position: absolute;
-    height: 200px;
-    width: auto;
-    transition: bottom .5s ease;
-    -khtml-user-select: none;
-    -o-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none; 
+.first-pair-card {
+  position: absolute;
+  height: 200px;
+  width: auto;
+  transition: 0.2s ease-in-out;
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .first-pair-card:hover {
-    bottom: 30px;
-    z-index: 1;
+  transform: scale(1.6);
+  bottom: 30px;
+  z-index: 1;
 }
 
-.second-pair-card { 
-    position: relative;
-    height: 200px;
-    width: auto;
-    left: 20px;
-    transition: bottom .5s ease;
-    -khtml-user-select: none;
-    -o-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none; 
+.second-pair-card {
+  position: relative;
+  height: 200px;
+  width: auto;
+  left: 20px;
+  transition: 0.2s ease-in-out;
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .second-pair-card:hover {
-    bottom: 30px;
+  transform: scale(1.2);
 }
 
 #pair-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%;
-    height: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  height: 20%;
 }
 
 #hidden {
-    z-index: 1;
-    display: none;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 60px;
-    color: #0c5918;
+  z-index: 1;
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  color: #0c5918;
 }
 
 @media only screen and (max-width: 1530px) {
-    #hidden {
-        font-size: 50px;
-    }
+  #hidden {
+    font-size: 50px;
+  }
 }
 
 @media only screen and (max-width: 1300px) {
-    #hidden {
-        font-size: 40px;
-    }
+  #hidden {
+    font-size: 40px;
+  }
 }
 
-
 @media only screen and (max-width: 1830px) {
-    .cards {
-        height: 260px;
-    }
+  .cards {
+    height: 260px;
+  }
 
-    #restart {
-        top: 30px;
-    }
+  #restart {
+    top: 30px;
+  }
 }
 
 @media only screen and (max-width: 1520px) {
+  .first-pair-card {
+    height: 150px;
+    width: auto;
+  }
 
-    .first-pair-card { 
-        height: 150px;
-        width: auto;
-    }
+  .second-pair-card {
+    height: 150px;
+    width: auto;
+  }
 
-    .second-pair-card { 
-        height: 150px;
-        width: auto;
-    }
+  #restart {
+    top: 6px;
+  }
 
-    #restart {
-        top: 6px;
-    }
+  #cards-container {
+    height: 680px;
+  }
 
-    #cards-container {
-        height: 680px;
-    }
+  #left-cards-conatiner {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 
-    #left-cards-conatiner {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
+  #right-cards-conatiner {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 
-    #right-cards-conatiner {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    .cards {
-        height: 220px;
-    }
+  .cards {
+    height: 220px;
+  }
 }
 
 @media only screen and (max-width: 1080px) {
-    .cards {
-        height: 200px;
-    }
+  .cards {
+    height: 200px;
+  }
 
-    .first-pair-card { 
-        height: 125px;
-        width: auto;
-    }
+  .first-pair-card {
+    height: 125px;
+    width: auto;
+  }
 
-    .second-pair-card { 
-        height: 125px;
-        width: auto;
-    }
-
+  .second-pair-card {
+    height: 125px;
+    width: auto;
+  }
 }
 
 #time {
-    z-index: 50;
-    position: absolute;
-    top: 30px;
-    left: 15%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    font-size: large;
-    color: greenyellow;
-    background-color: rgb(18, 80, 16);
-    border-radius: 66666666px;
-    border: 2px solid rgb(50, 148, 30);
-    transition: background-color .24s ease, color .24s ease;
-    visibility: hidden;
+  z-index: 50;
+  position: absolute;
+  top: 30px;
+  left: 15%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: large;
+  color: greenyellow;
+  background-color: rgb(18, 80, 16);
+  border-radius: 30px;
+  border: 2px solid rgb(50, 148, 30);
+  transition: background-color 0.24s ease, color 0.24s ease;
+  visibility: hidden;
 }
 
 a {
-    position: absolute;
-    top: 30px;
-    left: 1%;
-    padding: 10px 20px;
-    font-size: large;
-    color: greenyellow;
-    background-color: rgb(18, 80, 16);
-    border-radius: 66666666px;
-    border: 2px solid rgb(50, 148, 30);
-    transition: background-color .24s ease, color .24s ease;
-    text-decoration: none;
+  position: absolute;
+  top: 30px;
+  left: 1%;
+  padding: 10px 20px;
+  font-size: large;
+  color: greenyellow;
+  background-color: rgb(18, 80, 16);
+  border-radius: 30px;
+  transition: background-color 0.24s ease, color 0.24s ease;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: rgb(27, 109, 24);
 }

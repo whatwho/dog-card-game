@@ -17,10 +17,13 @@ body {
     font-size: xx-large;
     color: greenyellow;
     background-color: rgb(18, 80, 16);
-    border-radius: 66666666px;
-    border: 2px solid rgb(50, 148, 30);
+    border-radius: 30px;
     transition: background-color .24s ease, color .24s ease;
 }
+
+.menu-item:hover {
+    background-color: rgb(27, 109, 24);
+  }
 
 #game-container {
     display: flex;
