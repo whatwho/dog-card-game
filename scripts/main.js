@@ -50,7 +50,7 @@ function buildGame() {
 
     const level = getLevel();
 
-    if (level === "hard") {
+    if (level === "hard" || level === 'middle') {
         randomNumbers.forEach(num => {
             descriptionsWithoutText[num].setAttribute("number", num);
             descriptionsWithoutText[num].setAttribute("imgNum", 0);

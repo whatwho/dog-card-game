@@ -44,7 +44,7 @@ export function gameEvents(level) {
 
                 this.classList.add('first-pair-card');
                 this.classList.remove('cards');
-                if (gameLevel === 'hard') {
+                if (gameLevel === 'hard' || gameLevel === 'middle') {
                     descriptions[cardNumber].setAttribute("number", cardNumber);
                     descriptions[cardNumber].setAttribute("imgNum", 0);
                     descriptions[cardNumber].classList.add('first-pair-card');
@@ -59,7 +59,7 @@ export function gameEvents(level) {
             } else {
                 draggable[0].classList.add('first-pair-card');
                 draggable[0].classList.remove('cards');
-                if (gameLevel === 'hard') {
+                if (gameLevel === 'hard' || gameLevel === 'middle') {
                     descriptions[cardNumber].setAttribute("number", cardNumber);
                     descriptions[cardNumber].setAttribute("imgNum", 0);
                     descriptions[cardNumber].classList.add('first-pair-card');
