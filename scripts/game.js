@@ -1,5 +1,5 @@
 import { getPlayTime } from "./time.js";
-import { descriptionsWithoutText } from "./readImg.js";
+import { descriptions } from "./readImg.js";
 
 export function gameEvents(level) {
 
@@ -35,21 +35,39 @@ export function gameEvents(level) {
         e.preventDefault();
         this.classList.remove("hovered");
         const draggable = document.getElementsByClassName("dragging");
+        const cardNumber = draggable[0].getAttribute('number');
         if (draggable[0].getAttribute('number') === this.getAttribute('number') && draggable[0] !== this) {
             const pairsContainer = document.getElementById('pair-container');
             const newDiv = document.createElement('div');
             newDiv.classList.add('pairs');
             if (draggable[0].getAttribute('imgNum') == 1) {
+
                 this.classList.add('first-pair-card');
                 this.classList.remove('cards');
-                newDiv.append(this);
+                if (gameLevel === 'hard') {
+                    descriptions[cardNumber].setAttribute("number", cardNumber);
+                    descriptions[cardNumber].setAttribute("imgNum", 0);
+                    descriptions[cardNumber].classList.add('first-pair-card');
+                    newDiv.append(descriptions[cardNumber]);
+                    this.remove();
+                } else {
+                    newDiv.append(this);
+                }
                 draggable[0].classList.add('second-pair-card');
                 draggable[0].classList.remove('cards');
                 newDiv.append(draggable[0]);
             } else {
                 draggable[0].classList.add('first-pair-card');
                 draggable[0].classList.remove('cards');
-                newDiv.append(draggable[0]);
+                if (gameLevel === 'hard') {
+                    descriptions[cardNumber].setAttribute("number", cardNumber);
+                    descriptions[cardNumber].setAttribute("imgNum", 0);
+                    descriptions[cardNumber].classList.add('first-pair-card');
+                    draggable[0].remove();
+                    newDiv.append(descriptions[cardNumber]);
+                } else {
+                    newDiv.append(draggable[0]); 
+                }
                 this.classList.add('second-pair-card');
                 this.classList.remove('cards');
                 newDiv.append(this);
@@ -79,6 +97,6 @@ export function gameEvents(level) {
         document.getElementById('hidden').innerText = wonText;
         document.getElementById('hidden').style.display = "block";
         document.getElementById('middle-line').style.display = "none";
-        document.getElementById('restart').style.top = "40%"
+        document.getElementById('restart').style.top = "30%"
     }
 }
