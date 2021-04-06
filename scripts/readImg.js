@@ -1,9 +1,11 @@
 
 const imgPath = "images/kutyas/kepek_jpg/";
 const descPath = "images/kutyas/text_jpg/";
+const descWithoutTextPath = "images/kutyas/text_hard_jpg/";
 
 export const images = readImgToList(imgPath);
 export const descriptions = readImgToList(descPath);
+export const descriptionsWithoutText = readImgToList(descWithoutTextPath);
 
 function readImgToList(path) {
     let array = [];

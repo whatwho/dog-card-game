@@ -1,10 +1,9 @@
 import {gameEvents} from "./game.js";
-import {descriptions, images} from "./readImg.js";
+import { descriptions, images, descriptionsWithoutText } from "./readImg.js";
 import {getPlayTime} from "./time.js";
 
 window.onload = function () {
     init();
-
 }
 
 function init() {
@@ -49,12 +48,25 @@ function buildGame() {
 
     randomNumbers = randomNumbers.sort(() => Math.random() - 0.5)
 
-    randomNumbers.forEach(num => {
-        descriptions[num].setAttribute("number", num);
-        descriptions[num].setAttribute("imgNum", 0);
-        descriptions[num].classList.add("cards");
-        rightCardContainer.append(descriptions[num])
-    });
+    const level = getLevel();
+
+    if (level === "hard") {
+        randomNumbers.forEach(num => {
+            descriptionsWithoutText[num].setAttribute("number", num);
+            descriptionsWithoutText[num].setAttribute("imgNum", 0);
+            descriptionsWithoutText[num].classList.add("cards");
+            rightCardContainer.append(descriptionsWithoutText[num])
+        });
+    } else {
+        randomNumbers.forEach(num => {
+            descriptions[num].setAttribute("number", num);
+            descriptions[num].setAttribute("imgNum", 0);
+            descriptions[num].classList.add("cards");
+            rightCardContainer.append(descriptions[num])
+        });
+    }
+
+    
 }
 
 

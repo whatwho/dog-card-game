@@ -1,4 +1,5 @@
 import { getPlayTime } from "./time.js";
+import { descriptionsWithoutText } from "./readImg.js";
 
 export function gameEvents(level) {
 
