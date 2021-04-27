@@ -18,7 +18,6 @@ body {
   align-items: center;
   overflow: hidden;
   width: 100vw;
-  height: 100vh;
 }
 
 #restart {
@@ -48,6 +47,7 @@ body {
   bottom: 7%;
   width: 100%;
   height: 65%;
+  margin-top: 5rem;
 }
 
 #left-cards-conatiner {
